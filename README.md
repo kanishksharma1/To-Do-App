@@ -1,3 +1,3 @@
 ## Project link
 
-[to-do-app ]( https://to-do-app-alpha-seven.vercel.app/)
+[TO-DO-APP]( https://to-do-app-alpha-seven.vercel.app/)
