@@ -2,22 +2,13 @@ import { react, useState } from "react";
 
 function ToDoItem(props) {
 
-    const [isDone, setIsDone] = useState(false)
-
-    function handleClick() {
-        setIsDone((prevValue)=> {
-            return !prevValue;
-        } )
-    }
-
-    return (
-    <div onClick={()=>{handleClick();}} >
-    <li style={{textDecoration:isDone ? "line-through" : "none" }}>{props.text}</li>
-   <button onClick={()=>{props.onChecked(props.id);  }} style ={{position: "relative",  right: "100px", marginBottom: "30px" }} className="delete">DELETE</button>
+        return (
+    <div onClick={e =>{ props.markComplete(props.id, props.item.isDone); e.stopPropagation();}} >
+    <li style={{textDecoration:props.item.isDone ? "line-through" : "none" }}>{props.item.text}</li>
+   <button onClick={(e)=>{props.onChecked(props.id);e.stopPropagation();  }} style ={{position: "relative",  right: "100px", marginBottom: "30px" }} className="delete">DELETE</button>
     </div>
     );
 }
 
 export default ToDoItem;
-
 
