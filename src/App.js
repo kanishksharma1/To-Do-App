@@ -20,13 +20,13 @@ function App() {
     setInputText("");
   }
 
-  function deleteItem(id) {
+  function deleteItem(id, isDone) {
     setItems((prevItems) => {
       return prevItems.filter((item, index) => {
         return index != id;
       });
     });
-    deletedTask();
+    if (!isDone) deletedTask();
   }
 
   function remainingTask() {
@@ -53,7 +53,7 @@ function App() {
       setCount((prevCount) => prevCount + 1);
     } else {
       setCompletedCount((prevCount) => prevCount + 1);
-      setCount((prevCount) => prevCount - 1);
+      if (count > 0) setCount((prevCount) => prevCount - 1);
     }
   }
 
